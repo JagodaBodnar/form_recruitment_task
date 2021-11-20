@@ -93,27 +93,37 @@ const App = () => {
     setIsPizzaDiamteterouched(true);
     setIsBreadTouched(true);
 
-    const formIsValid =
-      validateName && validateNoOfPizzaSlices && validatePizzaDiamteter;
-    if (formIsValid) {
-      switch (type) {
-        case "soup": {
-          return postData({
-            name: name,
-            preparation_time: time,
-            type: type,
-            spiciness_scale: spiciness,
-          });
+    switch (type) {
+      case "soup":
+        {
+          const isFormValid = validateName;
+          if (isFormValid) {
+            return postData({
+              name: name,
+              preparation_time: time,
+              type: type,
+              spiciness_scale: spiciness,
+            });
+          }
         }
-        case "sandwich": {
-          return postData({
-            name: name,
-            preparation_time: time,
-            type: type,
-            slices_of_bread: breadSlices,
-          });
+        break;
+      case "sandwich":
+        {
+          const isFormValid = validateName && validateBreadSlices;
+          if (isFormValid) {
+            return postData({
+              name: name,
+              preparation_time: time,
+              type: type,
+              slices_of_bread: breadSlices,
+            });
+          }
         }
-        default:
+        break;
+      default:
+        const formIsValid =
+          validateName && validateNoOfPizzaSlices && validatePizzaDiamteter;
+        if (formIsValid) {
           return postData({
             name: name,
             preparation_time: time,
@@ -121,7 +131,7 @@ const App = () => {
             diameter: diameter,
             no_of_slices: pizzaSlices,
           });
-      }
+        }
     }
   };
 
@@ -147,8 +157,6 @@ const App = () => {
         isNameTouched,
         validateNoOfPizzaSlices,
         isPizzaSlicessTouched,
-        isPizzaDiamteterTouched,
-        validatePizzaDiamteter,
         isPizzaDiamteterTouched,
         validatePizzaDiamteter,
         validateBreadSlices,
