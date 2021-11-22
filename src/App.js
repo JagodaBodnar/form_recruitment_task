@@ -22,9 +22,7 @@ const App = () => {
   const [validateBreadSlices, setValidateBreadSlices] = useState(false);
   const [isBreadTouched, setIsBreadTouched] = useState(false);
 
-  useEffect(() => {
-    handlePreparationTimeChange();
-  }, [value]);
+
   useEffect(() => {
     validate();
   }, [name, pizzaSlices, diameter, breadSlices]);
