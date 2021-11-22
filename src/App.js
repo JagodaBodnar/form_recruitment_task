@@ -73,7 +73,7 @@ const App = () => {
       );
   }
   const isEmpty = (value) => `${value}`.length === 0 || value === undefined;
-  const isNotFiveChars = (value) => `${value}`.length !== 5;
+  const isNotFiveChars = (value) => `${value}`.length < 5;
   const validate = () => {
     const enteredNameisValid = !isEmpty(name) && !isNotFiveChars(name);
     setValidateName(enteredNameisValid);
