@@ -27,7 +27,7 @@ const SandwichSubForm = () => {
           value={breadSlices}
           onChange={handleNoOfBreadChange}
         />
-        <StyledLabel htmlFor="no_of_slices">Amount of pizza slices</StyledLabel>
+        <StyledLabel htmlFor="no_of_slices">Amount of bread slices</StyledLabel>
         {isBreadValid && (
           <StyledErrorField>This field is required.</StyledErrorField>
         )}
